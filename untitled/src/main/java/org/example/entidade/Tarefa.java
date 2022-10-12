@@ -6,14 +6,14 @@ public class Tarefa {
     private String descricao;
     private boolean concluido;
 
-    private Prioridade prioridade;
+    private String prioridade;
 
-    public Prioridade getPrioridade() {
-        return prioridade;
+    public void setPrioridade(String prioridade) {
+        this.prioridade = prioridade;
     }
 
-    public void setPrioridade(Prioridade prioridade) {
-        this.prioridade = prioridade;
+    public String getPrioridade() {
+        return prioridade;
     }
 
     public int getId() {
@@ -46,6 +46,7 @@ public class Tarefa {
                 "id=" + id +
                 ", descricao='" + descricao + '\'' +
                 ", concluido=" + concluido +
+                ", prioridade=" + prioridade +
                 '}';
     }
 

@@ -13,7 +13,7 @@ public class CriarTabelas {
                 id integer primary key autoincrement
                ,descricao  varchar(500)
                ,concluido  boolean
-               ,prioridade varchar(500)
+               ,prioridade  varchar(500)
             )
             """;
 

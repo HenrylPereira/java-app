@@ -17,6 +17,7 @@ public class TarefaDAO extends BaseDAO{
             PreparedStatement p = c.prepareStatement(sql)){
             p.setString(1,tarefa.getDescricao());
             p.setBoolean(2,tarefa.isConcluido());
+            p.setString(3,tarefa.getPrioridade());
             p.execute();
         }catch (SQLException e){
             System.out.println("Erro ao inserir tarefa ");
@@ -30,7 +31,7 @@ public class TarefaDAO extends BaseDAO{
 
     public List<Tarefa> obterTodos() {
         List<Tarefa> lista = new ArrayList<>();
-        String sql = "select id, descricao, concluido from tarefa";
+        String sql = "select id, descricao, concluido, prioridade from tarefa";
         try(Connection c = obterConexao();
             PreparedStatement p = c.prepareStatement(sql)){
 
@@ -40,6 +41,7 @@ public class TarefaDAO extends BaseDAO{
                 tarefa.setId(resultSet.getInt("id"));
                 tarefa.setConcluido(resultSet.getBoolean("concluido"));
                 tarefa.setDescricao(resultSet.getString("descricao"));
+                tarefa.setPrioridade(resultSet.getString("prioridade"));
 
                 lista.add(tarefa);
             }

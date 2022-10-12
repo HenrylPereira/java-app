@@ -1,10 +1,11 @@
 package org.example;
 
-import org.example.entidade.Prioridade;
 import org.example.entidade.Tarefa;
 import org.example.persistencia.CriarTabelas;
 import org.example.servico.CriarTarefa;
 import org.example.servico.ListarTarefas;
+
+import java.util.ArrayList;
 
 public class Main {
 
@@ -12,17 +13,16 @@ public class Main {
 
         CriarTabelas.criarTabelas();
 
-        Prioridade prioridade = new Prioridade();
-        prioridade.setId(1);
-        prioridade.setNome("alta");
-
         Tarefa tarefa = new Tarefa();
-        tarefa.setDescricao("Segunda tarefa");
-        tarefa.setPrioridade(prioridade);
+        tarefa.setDescricao("tarefa");
+        tarefa.setPrioridade("alta");
 
+        ArrayList lista = new ArrayList<Tarefa>();
+        lista.add(tarefa);
 
 
         CriarTarefa criarTarefa = new CriarTarefa();
+
         try {
             criarTarefa.criar(tarefa);
         }catch (Exception e){
